@@ -1,0 +1,13 @@
+{
+  "name": "engine",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "request": "^2.81.0",
+    "serverless": "^1.10.1",
+    "serverless-plugin-crypt": "^0.0.1",
+    "serverless-plugin-simulate": "^0.0.13"
+  }
+}
