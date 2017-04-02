@@ -1,0 +1,4 @@
+src/*
+!src/stores
+!src/actions
+!src/constants

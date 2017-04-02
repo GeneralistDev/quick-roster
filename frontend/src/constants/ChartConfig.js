@@ -11,6 +11,6 @@ const CHARTCONFIG = {
     splitLine: 'rgba(0,0,0,.05)',
     splitArea: ['rgba(250,250,250,0.035)', 'rgba(200,200,200,0.1)'],
   }
-}
+};
 
 module.exports = CHARTCONFIG;
