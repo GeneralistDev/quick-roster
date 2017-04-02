@@ -3,5 +3,8 @@ config:
   kmsKeyId: arn:aws:kms:us-east-1:338257455868:key/addc93b9-7866-4de9-b8c1-bc20ed63445d
 
   environment:
+    auth:
+      SECRET: 
+      
     common:
       ENC_MESSAGE: AQECAHiz6EAWjwTvKZjeuwEMbCwBVh0SD6oQMVSyLS55+XQYLAAAAGkwZwYJKoZIhvcNAQcGoFowWAIBADBTBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCEt/8cgCpGViclzXQIBEIAmWjNKMDjyb/qRdnOraGPiCG/tgBDN61LgO7FQIqU4IgjYfsblg8k=

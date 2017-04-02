@@ -60,6 +60,10 @@ package:
    - coverage/**
 
 functions:
+  authorizer:
+    handler: src/functions/authorizer/handler.handler
+    environment: ${self:custom.config.environment.auth}
+
   hello:
     handler: src/functions/helloworld/handler.handler
     events:
@@ -67,6 +71,7 @@ functions:
           path: helloworld
           method: get
           cors: true
+          authorizer: authorizer
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

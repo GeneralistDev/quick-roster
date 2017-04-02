@@ -1,11 +1,11 @@
 'use strict';
 
 const BbPromise = require('bluebird');
-const env = require('@a-cloud-guru/kms-secrets').env;
+
+const HelloService = require('../../common/hello.service');
 
 module.exports.handler = BbPromise.coroutine(function* (event, context, cb) {
-    const message = yield env.getEncryptedEnvVar('ENC_MESSAGE');
-    console.log(message);
+    const message = yield* HelloService.sayHello();
 
     const response = {
         statusCode: 200,
