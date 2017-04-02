@@ -13,4 +13,4 @@ if [ -z ${IAM_USER} ]; then
     exit 1
 fi
 
-formica deploy --stack kms-key-$SERVERLESS_STAGE --parameter IAMUserName=$IAM_USER --parameter Stage=$SERVERLESS_STAGE
+formica deploy --stack kms-key-$SERVERLESS_STAGE --region us-east-1 --profile gamification --parameter IAMUserName=$IAM_USER --parameter Stage=$SERVERLESS_STAGE
