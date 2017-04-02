@@ -2,7 +2,7 @@ import React from 'react';
 import AutoComplete from './AutoComplete';
 import Checkbox from './Checkbox';
 import Chip from './Chip';
-import Datepicker from './Datepicker';
+import Datepicker from './DatePicker';
 import Dialog from './Dialog';
 import RadioButton from './RadioButton';
 import SelectField from './SelectField';

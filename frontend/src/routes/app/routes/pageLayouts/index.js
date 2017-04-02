@@ -4,7 +4,7 @@ module.exports = {
         require.ensure([], (require) => {
             cb(null, [
                 require('./routes/centered'),
-                require('./routes/fullwidth'),
+                require('./routes/fullWidth'),
             ])
         })
     }
