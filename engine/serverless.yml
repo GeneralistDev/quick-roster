@@ -26,10 +26,7 @@ provider:
   # iamRoleStatements:
   #   - Effect: "Allow"
   #     Action:
-  #       - "kms:Encrypt"
   #       - "kms:Decrypt"
-  #       - "kms:ReEncrypt*"
-  #       - "kms:GenerateDataKey*"
   #       - "kms:DescribeKey"
   #     Resource: "arn:aws:kms:us-east-1:338257455868:key/*"
 
@@ -39,8 +36,6 @@ plugins:
 
 custom:
   config: ${file(./config/${opt:stage}.yml):config}
-  aws_account_id: "338257455868"
-  aws_iam_username: daniel
   crypt:
     aws:
       kmsKeyId: ${self:custom.config.kmsKeyId}
