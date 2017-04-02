@@ -7,7 +7,7 @@ const HelloService = {
         const message = yield env.getEncryptedEnvVar('ENC_MESSAGE');
         console.log(message);
         return message;
-    }
+    },
 };
 
 module.exports = HelloService;

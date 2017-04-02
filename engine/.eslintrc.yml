@@ -1,0 +1,42 @@
+---
+  plugins:
+    - node
+    - promise
+
+  extends:
+    - eslint:recommended
+    - plugin:node/recommended
+
+  env:
+    node: true
+
+  settings:
+    node:
+      allowModules:
+        - aws-sdk
+  
+  parserOptions:
+    ecmaVersion: 6
+    sourceType: module
+
+  rules:
+    node/exports-style:
+      - error
+      - module.exports
+    comma-dangle:
+      - error
+      - arrays: always-multiline
+        objects: always-multiline
+
+    node/no-unsupported-features:
+      - error
+      - version: 6
+        ignores: []
+
+    node/no-unpublished-require:
+      - error
+      - allowModules:
+          - aws-sdk
+    
+    no-console:
+      - off
