@@ -7,7 +7,7 @@
  - Yarn@0.21.3
 
 ## Installation
-  - `yarn install && yarn serve:dev` 
+  - `npm run installDep && npm run serve:dev` 
 
 ## Other
   - Once we start getting used to the linter and the project no longer
