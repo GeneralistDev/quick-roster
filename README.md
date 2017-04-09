@@ -1,8 +1,23 @@
 # A Cloud Guru - Gamification Engine
 
-## Contribution
+## Contributing
+### Commit Message Conventions
+All commit messages must use one of the following as a prefix
 
-### Setup
+* **NEW**: New features (used to tag this is the first time a new feature is added)
+* **ENHANCE**:  Improvement to existing feature (Not purely visual, see looks ) 
+* **FIX**: Fixed a bug
+* **LOOKS**: UI Refinement (Predominantly not for functionality change, see enhance )
+* **SPEED**: Performance-related code change
+* **QUALITY**: Refactoring or internal quality adjustment
+* **DOC**: Documentation
+* **CONFIG**: Config setting changed 
+* **TEST**: Testing related addition or enhancement
+
+### Setup (Frontend)
+Coming soon
+
+### Setup (Backend)
 #### Dependencies
 * nvm (node version manager)
 * avn & avn-nvm
