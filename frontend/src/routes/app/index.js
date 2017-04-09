@@ -4,7 +4,6 @@ module.exports = {
         require.ensure([], (require) => {
             cb(null, [
                 require('./routes/dashboard'),
-                require('./routes/pageLayouts'),
                 require('./routes/ui'),
             ])
         })
