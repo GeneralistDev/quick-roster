@@ -6,12 +6,12 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "copy": "copyfiles -f ./src/index.html ./dist && copyfiles -u 1 \"./src/static/**\" ./dist",
-    "build": "npm run clean && npm run copy && webpack --progress --bail --env dist -p",
+    "build": "node ./yarn-0.21.3.js run clean && node ./yarn-0.21.3.js run copy && webpack --progress --bail --env dist -p",
     "lint": "eslint ./src",
-    "posttest": "npm run lint",
+    "posttest": "node ./yarn-0.21.3.js run lint",
     "serve:dev": "webpack-dev-server --open --env dev",
     "serve:dist": "webpack-dev-server --open --env dist -p --progress",
-    "start": "npm run serve:dev"
+    "start": "node ./yarn-0.21.3.js run serve:dev"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
