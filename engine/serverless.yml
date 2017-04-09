@@ -23,12 +23,11 @@ provider:
   region: us-east-1
   profile: gamification
   environment: ${self:custom.config.environment.common}
-  # iamRoleStatements:
-  #   - Effect: "Allow"
-  #     Action:
-  #       - "kms:Decrypt"
-  #       - "kms:DescribeKey"
-  #     Resource: "arn:aws:kms:us-east-1:338257455868:key/*"
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:PutItem"
+      Resource: "arn:aws:dynamodb:us-east-1:338257455868:table/*"
 
 plugins:
   - serverless-plugin-crypt
@@ -73,13 +72,52 @@ functions:
           cors: true
           authorizer: api-key-authorizer
 
-  hello:
-    handler: src/functions/helloworld/handler.handler
+  event-triage:
+    handler: src/functions/event-triage/handler.handler
     events:
-      - http:
-          path: helloworld
-          method: get
-          cors: true
+      - stream:
+          type: dynamodb
+          arn:
+            Fn::GetAtt:
+              - eventsStream
+              - StreamArn
+
+resources:
+  Resources:
+    eventsStream:
+      Type: AWS::DynamoDB::Table
+      DeletionPolicy: Delete
+      Properties:
+        TableName: eventsStream-${opt:stage}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: name
+            AttributeType: S
+          - AttributeName: createdTimestamp
+            AttributeType: N
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+          - AttributeName: name
+            KeyType: RANGE
+        GlobalSecondaryIndexes:
+          - IndexName: NameDate
+            KeySchema:
+              - AttributeName: name
+                KeyType: HASH
+              - AttributeName: createdTimestamp
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
+        StreamSpecification:
+          StreamViewType: NEW_IMAGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

@@ -2,6 +2,11 @@
 
 const BbPromise = require('bluebird');
 const Joi = require('joi');
+const uuid = require('uuid/v4');
+const AWS = require('aws-sdk');
+AWS.config.setPromisesDependency(BbPromise);
+const dynamodb = new AWS.DynamoDB();
+
 const validateAsync = BbPromise.promisify(Joi.validate);
 
 const httpResponse = require('../../common/http-response.lib');
@@ -22,10 +27,33 @@ module.exports.handler = BbPromise.coroutine(function* (event, context, callback
         }
 
         const preparedEvent = Object.assign({}, payload, {
+            id: uuid(),
             createdTimestamp: new Date().getTime(),
         });
 
         // Save to dynamo
+        const params = {
+            Item: {
+                "id": {
+                    S: preparedEvent.id,
+                },
+                "name": {
+                    S: preparedEvent.name,
+                },
+                "data": {
+                    S: JSON.stringify(preparedEvent.data),
+                },
+                "createdTimestamp": {
+                    N: preparedEvent.createdTimestamp.toString(),
+                },
+            },
+            ReturnConsumedCapacity: "TOTAL",
+            TableName: process.env['EVENT_STREAM_TABLE'],
+        }
+
+        const putResponse = yield dynamodb.putItem(params).promise();
+
+        console.log('putResponse: ', JSON.stringify(putResponse, null, 2));
 
         callback(null, httpResponse.ok(preparedEvent));
     } catch (exception) {

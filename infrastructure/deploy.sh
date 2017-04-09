@@ -7,4 +7,4 @@ if [ -z ${SERVERLESS_STAGE} ]; then
     exit 1
 fi
 
-formica deploy --stack kms-key-$SERVERLESS_STAGE --region us-east-1 --profile gamification
+formica deploy --stack gamification-infrastructure-$SERVERLESS_STAGE --region us-east-1 --profile gamification
