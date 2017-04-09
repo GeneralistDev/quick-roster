@@ -60,9 +60,18 @@ package:
    - coverage/**
 
 functions:
-  authorizer:
-    handler: src/functions/authorizer/handler.handler
+  api-key-authorizer:
+    handler: src/functions/authorizer/api-key.handler
     environment: ${self:custom.config.environment.auth}
+
+  event-inbound:
+    handler: src/functions/event-inbound/handler.handler
+    events:
+      - http:
+          path: event
+          method: post
+          cors: true
+          authorizer: api-key-authorizer
 
   hello:
     handler: src/functions/helloworld/handler.handler
@@ -71,7 +80,6 @@ functions:
           path: helloworld
           method: get
           cors: true
-          authorizer: authorizer
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

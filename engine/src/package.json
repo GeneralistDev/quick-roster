@@ -5,6 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "@a-cloud-guru/kms-secrets": "^0.0.1",
-    "bluebird": "^3.5.0"
+    "api-gateway-policy-gen": "^1.0.0",
+    "bluebird": "^3.5.0",
+    "joi": "^10.4.1"
   }
 }
