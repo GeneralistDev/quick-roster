@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "copy": "copyfiles -f ./src/index.html ./dist && copyfiles -u 1 \"./src/static/**\" ./dist",
+    "installDep": "node ./yarn-0.21.3.js install",
     "build": "node ./yarn-0.21.3.js run clean && node ./yarn-0.21.3.js run copy && webpack --progress --bail --env dist -p",
     "lint": "eslint ./src",
     "posttest": "node ./yarn-0.21.3.js run lint",
