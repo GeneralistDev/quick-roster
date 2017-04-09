@@ -18,3 +18,6 @@
  - ChromeDebugger
  - EditorConfig
  - ESLint
+
+ # Debugging Extras
+ - https://github.com/zalmoxisus/redux-devtools-extension
