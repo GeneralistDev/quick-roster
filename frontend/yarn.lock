@@ -1673,7 +1673,7 @@ copy-webpack-plugin@^4.0.1:
     minimatch "^3.0.0"
     node-dir "^0.1.10"
 
-copyfiles@^1.2.0:
+copyfiles@1.2:
   version "1.2.0"
   resolved copyfiles-1.2.0.tgz#a8da3ac41aa2220ae29bd3c58b6984294f2c593c
   dependencies:

@@ -1,7 +1,7 @@
 {
-  "name": "material",
+  "name": "acg-fyp",
   "private": true,
-  "version": "1.0.1",
+  "version": "0.0.1",
   "main": "",
   "scripts": {
     "clean": "rimraf dist/*",
@@ -30,7 +30,6 @@
     "babel-preset-stage-2": "^6.5.0",
     "bootstrap": "~4.0.0-alpha.6",
     "browser-sync": "^2.18.8",
-    "copyfiles": "^1.2.0",
     "css-loader": "^0.27.3",
     "del": "^2.2.0",
     "eslint": "^3.18.0",
@@ -61,6 +60,7 @@
   "dependencies": {
     "classnames": "~2.2.5",
     "copy-webpack-plugin": "^4.0.1",
+    "copyfiles": "1.2",
     "core-js": "~2.4.0",
     "echarts": "~3.4.0",
     "element-resize-event": "^2.0.8",
