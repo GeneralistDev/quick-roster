@@ -26,8 +26,15 @@ provider:
   iamRoleStatements:
     - Effect: "Allow"
       Action:
+        - "dynamodb:Query"
         - "dynamodb:PutItem"
+        - "dynamodb:UpdateItem"
       Resource: "arn:aws:dynamodb:us-east-1:338257455868:table/*"
+
+    - Effect: "Allow"
+      Action:
+        - "lambda:InvokeFunction"
+      Resource: "arn:aws:lambda:us-east-1:338257455868:function:gamification-engine-${opt:stage}-*"
 
 plugins:
   - serverless-plugin-crypt
@@ -79,42 +86,64 @@ functions:
           type: dynamodb
           arn:
             Fn::GetAtt:
-              - eventsStream
+              - eventStreamTable
               - StreamArn
+    
+  reducer-userVotes:
+    handler: src/functions/reducers/userVotes.handler
 
 resources:
   Resources:
-    eventsStream:
+    eventStreamTable:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Delete
       Properties:
-        TableName: eventsStream-${opt:stage}
+        TableName: eventStreamTable-${opt:stage}
+        AttributeDefinitions:
+          - AttributeName: name
+            AttributeType: S
+          - AttributeName: createdTimestamp
+            AttributeType: S
+        KeySchema:
+          - AttributeName: name
+            KeyType: HASH
+          - AttributeName: createdTimestamp
+            KeyType: RANGE
+        StreamSpecification:
+          StreamViewType: NEW_IMAGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+      
+    aggregateTable:
+      Type: AWS::DynamoDB::Table
+      DeletionPolicy: Delete
+      Properties:
+        TableName: aggregateTable-${opt:stage}
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
           - AttributeName: name
             AttributeType: S
-          - AttributeName: createdTimestamp
-            AttributeType: N
+          - AttributeName: eventuid
+            AttributeType: S
         KeySchema:
-          - AttributeName: id
-            KeyType: HASH
           - AttributeName: name
+            KeyType: HASH
+          - AttributeName: eventuid
             KeyType: RANGE
         GlobalSecondaryIndexes:
-          - IndexName: NameDate
+          - IndexName: NameId
             KeySchema:
-              - AttributeName: name
+              - AttributeName: id
                 KeyType: HASH
-              - AttributeName: createdTimestamp
+              - AttributeName: name
                 KeyType: RANGE
             Projection:
               ProjectionType: ALL
             ProvisionedThroughput:
               ReadCapacityUnits: 1
               WriteCapacityUnits: 1
-        StreamSpecification:
-          StreamViewType: NEW_IMAGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
