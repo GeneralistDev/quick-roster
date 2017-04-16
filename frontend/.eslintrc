@@ -17,9 +17,9 @@
     "react/jsx-space-before-closing": ["off"],
     "react/prefer-stateless-function": ["off"],
     "no-underscore-dangle": [ "error", { "allowAfterThis": true }],
-    "import/no-unresolved": ["error", {
+    "import/no-unresolved": [ 0, {
         "ignore": [
-          "config",
+          "config/",
           "components/",
           "stores/",
           "actions/",
