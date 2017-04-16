@@ -2,10 +2,10 @@
 
 cd engine
 
-echo 'Serverless stage:'
+echo 'Serverless stage: (eg. dan)'
 read SERVERLESS_STAGE
 
-echo 'IAMUser'
+echo 'IAMUser: (eg. daniel)'
 read IAMUSER
 
 bash deploy.sh $SERVERLESS_STAGE
