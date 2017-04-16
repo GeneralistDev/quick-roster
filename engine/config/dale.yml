@@ -1,0 +1,13 @@
+---
+config:
+  kmsKeyId: arn:aws:kms:us-east-1:338257455868:key/c2326c41-88ac-4b40-86f1-e5bf3ab6956a	
+
+  environment:
+    auth:
+      ENC_SECRET: AQECAHiYewo4gnD6n+nZKnhn4d7Mybcc+I6fa7BJ41lGy8ymzgAAAGIwYAYJKoZIhvcNAQcGoFMwUQIBADBMBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDM0fHEgGzuF13/YiIwIBEIAf1LqJCxCRiKbFXSMo8LUlUyfHL3hXBh9wTM+L6ai2tw==
+      
+    common:
+      SERVICE_STAGE: dale
+      EVENT_STREAM_TABLE: eventStreamTable-dale
+      AGGREGATE_TABLE: aggregateTable-dale
+      AGGREGATE_GSI: NameId
