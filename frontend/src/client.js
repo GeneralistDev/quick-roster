@@ -33,7 +33,6 @@ const rootRoute = {
             require('./routes/lockScreen'),
             require('./routes/login'),
             require('./routes/signUp'),
-            require('./routes/fullscreen'),
             {
                 path: '*',
                 indexRoute: { onEnter: (nextState, replace) => replace('/404') },

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 
-import NavLeftList from './NavLeftList'
 import NavRightList from './NavRightList'
 import APPCONFIG from 'constants/Config';
 import { Link } from 'react-router';
@@ -44,11 +43,7 @@ class Header extends React.Component {
                     <div className="brand hidden-md-down">
                         <h2><Link to="/">{APPCONFIG.brand}</Link></h2>
                     </div>
-
-                    <div className="top-nav-left hidden-md-down">
-                        <NavLeftList />
-                    </div>
-
+                    
                     <div className="top-nav-right">
                         <NavRightList />
                     </div>
