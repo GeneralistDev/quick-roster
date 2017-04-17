@@ -80,6 +80,10 @@ joi@^10.4.1:
     items "2.x.x"
     topo "2.x.x"
 
+lodash@^4.17.4:
+  version "4.17.4"
+  resolved lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae
+
 lodash@~3.5.0:
   version "3.5.0"
   resolved lodash-3.5.0.tgz#19bb3f4d51278f0b8c818ed145c74ecf9fe40e6d
