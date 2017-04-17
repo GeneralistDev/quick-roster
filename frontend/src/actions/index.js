@@ -9,7 +9,7 @@ export function togglCollapsedNav(isNavCollapsed) {
 export function toggleNavBehind(isNavBehind) {
   return { type: types.TOGGLE_NAV_BEHIND, isNavBehind };
 }
-export function toggleFixedHeader(isFixedHeader) {
+export function toggleFixedHeader(isFixedHeader) { 
   return { type: types.TOGGLE_FIXED_HEADER, isFixedHeader };
 }
 export function changeSidebarWidth(sidebarWidth) {
