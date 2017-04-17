@@ -58,7 +58,7 @@ Resources:
             Principal:
               AWS:
                 - !Sub arn:aws:iam::${AWS::AccountId}:user/${IAMUserName}
-                - !Sub arn:aws:iam::${AWS::AccountId}:role/gamification-engine-${Stage}-us-east-1-lambdaRole
+                - !Sub arn:aws:iam::${AWS::AccountId}:role/quick-roster-${Stage}-us-east-1-lambdaRole
             Action:
               - "kms:Encrypt"
               - "kms:Decrypt"
@@ -71,7 +71,7 @@ Resources:
             Principal:
               AWS:
                 - !Sub arn:aws:iam::${AWS::AccountId}:user/${IAMUserName}
-                - !Sub arn:aws:iam::${AWS::AccountId}:role/gamification-engine-${Stage}-us-east-1-lambdaRole
+                - !Sub arn:aws:iam::${AWS::AccountId}:role/quick-roster-${Stage}-us-east-1-lambdaRole
             Action:
               - "kms:CreateGrant"
               - "kms:ListGrants"

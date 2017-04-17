@@ -1,8 +1,8 @@
 {
-  "name": "gamification-engine",
+  "name": "quick-roster",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/ACloudGuru/gamification-engine.git",
+  "repository": "https://github.com/Rlgod/quick-roster.git",
   "author": "Daniel Parker <dparker.tech@gmail.com>",
   "license": "MIT",
   "devDependencies": {}

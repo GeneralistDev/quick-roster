@@ -13,4 +13,4 @@ if [ -z ${IAM_USER} ]; then
     exit 1
 fi
 
-formica change --stack gamification-infrastructure-$SERVERLESS_STAGE --region us-east-1 --profile gamification --parameter IAMUserName=$IAM_USER --parameter Stage=$SERVERLESS_STAGE
+formica change --stack quick-roster-$SERVERLESS_STAGE --region us-east-1 --profile quick-roster --parameter IAMUserName=$IAM_USER --parameter Stage=$SERVERLESS_STAGE

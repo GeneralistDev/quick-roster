@@ -1,23 +1,12 @@
-# Frontend -- is best end
+# frontend
 
-## Dependencies
- - Node 7.6 (enfoced with AVN)
- - NVM
- - AVN
- - Yarn@0.21.3
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.16.0.
 
-## Installation
-  - `yarn install && yarn run serve:dev` 
+## Build & development
 
-## Other
-  - Once we start getting used to the linter and the project no longer
-    looks like a nightmare from the linter point of view run `yarn lint`
-    to check for any liniting issues
+Run `grunt` for building and `grunt serve` for preview.
 
-## VSCode Optionals
- - ChromeDebugger
- - EditorConfig
- - ESLint
+## Testing
 
- # Debugging Extras
- - https://github.com/zalmoxisus/redux-devtools-extension
+Running `grunt test` will run the unit tests with karma.
